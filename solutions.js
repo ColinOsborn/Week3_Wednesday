@@ -74,7 +74,7 @@ function convertTemp() {
   var tempChange = prompt("Please enter a temperature in Celsius");
   return ((tempChange * 9) / 5) + 32;
 }
-convertTemp();
+console.log(convertTemp());
 
 /// input to be, output to be!!!!
 // 7. Adding to the code in #2, prompt the user a second time to determine whether they'd like to convert from Fahrenheit to Celsius
@@ -96,6 +96,8 @@ console.log(convertTempToCorF());
 // 8. Write a function countBs() that takes a string as its only argument and returns
 //    a number that indicates how many uppercase “B” characters are in the string.
 //    HINT: Google charAt()
+console.log("Quesion 8");
+
 
 
 // 9. Write a function called countChars() that behaves like countBs(), except it takes a
@@ -107,8 +109,35 @@ console.log(convertTempToCorF());
 // 11. Write function that translates a sentence into pig latin.
 //     https://en.wikipedia.org/wiki/Pig_Latin
 //     i.e. "look at my cool function" --> "ooklay atyay ymay oolcay unctionfay"
+console.log("Question 11");
+function pigLatinSentence(sentence) {
+   var words = sentence.split(" ");
+   var pgSentence = "";
+   for (i = 0; i < words.length; i++) {
+       var currentWord = words[i];
+       var result = pigLatinWord(currentWord);
+       pgSentence = pgSentence.concat(result).concat(" ");
+   }
+   return pgSentence;
+}
 
+function pigLatinWord(word) {
+   var firstLetter = word[0];
+   if (firstLetter === "a"
+       || firstLetter === "e"
+       || firstLetter === "i"
+       || firstLetter === "o"
+       || firstLetter === "u") {
+       return word.concat("yay");
+   } else {
+       var nextLetters = word.substring(1);
+       return nextLetters.concat(firstLetter).concat("ay");
+   }
+}
+
+console.log(pigLatinSentence("Look at my cool function"));
 // 12. Write a function that prints out the entire "99 Bottles of Beer on the Wall" song lyrics.
+console.log("Question 12");
 
 // 13. Create a 'Guessing Game'. The game starts by picking a random number.
 //    It then prompts the user to guess the number. If the user's number is lower/higher,
